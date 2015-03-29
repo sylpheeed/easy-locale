@@ -1,0 +1,2 @@
+# easy-locale
+Easy locale
