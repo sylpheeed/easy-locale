@@ -21,7 +21,7 @@ Size 1.1 kb. Writen on pure JavaScript.
       section:{
         substring: 'test substring'
       }
-      string_with_value: 'string with value1: %{value1} and value2: %{value2}'
+      string_with_values: 'string with value1: %{value1} and value2: %{value2}'
       string_with_count: {
         elements: {
           zero: '%{count} elements',
@@ -44,11 +44,11 @@ console.log(t('section.substring'));
 
 ### Interpolate
 ```javascript
-console.log(t('string_with_value', {value1: 'first value', value2: 'second value'}));
+console.log(t('string_with_values', {value1: 'first value', value2: 'second value'}));
 ```
 
 ### Pluralization
 ```javascript
-console.log(t('string_with_count', {count: 0}));
-console.log(t('string_with_count', {count: 1}));
+console.log(t('string_with_count.elements', {count: 0}));
+console.log(t('string_with_count.elements', {count: 1}));
 ```
