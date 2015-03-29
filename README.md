@@ -33,7 +33,7 @@ Size 1.1 kb. Writen on pure JavaScript.
     ...
   }
   locale.init('en', translations);
-  var t = locale.t;
+  window.t = locale.t;
 })();
 ```
 ### Basic usage
