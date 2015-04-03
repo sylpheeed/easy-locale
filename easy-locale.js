@@ -32,10 +32,10 @@ var locale = (function () {
         }
       }
     };
-    if(pluralizationRules[locale]){
+    if (pluralizationRules[locale]) {
       return pluralizationRules[locale](count);
-    }else{
-      throw new Error('No pluralization rules for '+locale+' locale');
+    } else {
+      throw new Error('No pluralization rules for ' + locale + ' locale');
     }
   }
 
@@ -48,25 +48,25 @@ var locale = (function () {
     return string;
   }
 
-  function isObject(hash){
-    return hash !== null && typeof hash === 'object'
-  }
+  function isObject(obj) { return obj !== null && typeof obj === 'object'; }
+
+  function randomInteger(max) { return Math.floor(Math.random() * max); }
 
   return {
-    init: function(userLocale, data, multipleType){
+    init: function (userLocale, data, multipleType) {
       locale = userLocale;
-      translations = data;
+      dictionary = data;
       multiple = multipleType ? multipleType : true;
+      translations = multiple ? dictionary[locale] : dictionary;
     },
     t: function (key, data) {
-      if(!data){
-        data = {};
-      }
+      if (!data) data = {};
       try {
         var e, hash, i, keys, rand, result;
+
         keys = key.split('.');
         i = 0;
-        hash = multiple ? translations[locale] : translations;
+        hash = translations;
         while (i < keys.length) {
           hash = hash[keys[i]];
           i++;
@@ -77,15 +77,15 @@ var locale = (function () {
           if (typeof cache[key] !== 'undefined') {
             result = cache[key];
           } else {
-            rand = Math.floor(Math.random() * hash.length);
+            rand = randomInteger(hash.length);
             result = replaceInterpolated(hash[rand], data);
             cache[key] = result;
           }
         } else if (isObject(hash)) {
-          if (data['count'] === void 0) {
+          if (data.count === void 0) {
             throw new Error("doesn't have 'count' parameter");
           } else {
-            hash = hash[pluralization(locale, data['count'])];
+            hash = hash[pluralization(locale, data.count)];
             result = replaceInterpolated(hash, data);
           }
         } else {
