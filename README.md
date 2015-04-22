@@ -1,6 +1,6 @@
 # easy-locale
 
-A simple and easy to use lib to localize your application. 
+A simple and easy to use lib for localizing your application. 
 Size 1.1 kb. Writen on pure JavaScript.
 
 [Demo](http://sylpheeed.github.io/easy-locale/examples/)
@@ -10,6 +10,11 @@ Size 1.1 kb. Writen on pure JavaScript.
 ### Including file:
 ```html
  <script src="easy-locale.min.js"></script>
+```
+
+### Including file via npm:
+```
+npm install easy-locale
 ```
 
 ### Initialization
