@@ -1,0 +1,27 @@
+{
+  "name": "easy-locale",
+  "version": "1.0.0",
+  "description": "A simple and easy to use lib for localizing your application.",
+  "main": "src/easy-locale.npm.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sylpheeed/easy-locale.git"
+  },
+  "keywords": [
+    "locale",
+    "js"
+  ],
+  "author": "Sergey Sharaskin and Vladimir Smyshlyaev",
+  "email": "sylpheed@mail.ru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sylpheeed/easy-locale/issues"
+  },
+  "homepage": "https://github.com/sylpheeed/easy-locale"
+}

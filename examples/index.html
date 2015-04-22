@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Easy Locale</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <script src="../easy-locale.js"></script>
+  <script src="../easy-locale.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
     var translations = {
@@ -21,6 +21,9 @@
             one: '%{count} element',
             other: '%{count} elements'
           }
+        },
+        app:{
+          title: 'Easy Locale example | Language:'
         },
         table: {
           header: {
@@ -44,6 +47,9 @@
             many: '%{count} монетов',
             other: '%{count} монетов'
           }
+        },
+        app:{
+          title: 'Easy Locale пример | Язык:'
         },
         table: {
           header: {
@@ -82,11 +88,11 @@
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Easy Locale example |
-    Language:
+  <div class="panel-heading">
+    <span data-t="app.title"></span>
     <select id="language">
-      <option value="en">en</option>
-      <option value="ru">ru</option>
+      <option value="en">English</option>
+      <option value="ru">Русский</option>
     </select>
   </div>
 

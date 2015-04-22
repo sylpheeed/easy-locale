@@ -1,4 +1,4 @@
-var locale = (function () {
+module.exports = (function () {
   var locale = null,
     cache = {},
     multiple = true,
