@@ -62,3 +62,54 @@ console.log(t('string_with_count.elements', {count: 0}));
 console.log(t('string_with_count.elements', {count: 1}));
 // => 1 element
 ```
+
+## Options
+
+### singleLocale
+
+Sometimes you may need only one locale. 
+
+For example if you build on server side dynamicly your translation based on his current locale zone and then send it to client.
+
+```javascript
+var translations = {
+     first: 'First string',
+     second: 'Second string',
+    };
+var options = {
+ singleLocale: true
+}
+// We still need set first parameter for determining pluralization logic
+locale.init('en', translations, options);    
+
+
+console.log(locale.t('first'));
+// => First string
+```
+
+## Helpers
+
+### getCurrent
+Shows object with current translation
+
+```javascript
+var translations = {
+     en: {
+      first: 'First string',
+      second: 'Second string',
+     },
+     ru: {
+      first: 'Первая строка',
+      second: 'Вторая строка',
+     }
+    };
+    
+locale.init('en', translations);    
+
+console.log(locale.getCurrent());
+// => 
+// {
+//  first: 'First string',
+//  second: 'Second string'
+// }
+```
