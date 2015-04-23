@@ -1,7 +1,6 @@
 var locale = (function () {
   var locale = null,
     cache = {},
-    multiple = true,
     translations = null;
 
   function pluralization(locale, count) {
@@ -49,17 +48,34 @@ var locale = (function () {
     return string;
   }
 
-  function isObject(obj) { return obj !== null && typeof obj === 'object'; }
+  function isObject(obj) {
+    return obj !== null && typeof obj === 'object';
+  }
 
-  function randomInteger(max) { return Math.floor(Math.random() * max); }
+
+  function checkOptions(options) {
+    return {
+      isSingleLocale: function () {
+        return options && options.singleLocale ? options.singleLocale : false;
+      }
+    }
+  }
+
+
+  function randomInteger(max) {
+    return Math.floor(Math.random() * max);
+  }
 
   return {
-    init: function (userLocale, data, multipleType) {
+    init: function (userLocale, data, options) {
       locale = userLocale;
-      dictionary = data;
-      multiple = multipleType ? multipleType : true;
-      translations = multiple ? dictionary[locale] : dictionary;
+      translations = checkOptions(options).isSingleLocale() ? data :  data[locale];
     },
+
+    getCurrent: function(){
+      return translations;
+    },
+
     t: function (key, data) {
       if (!data) data = {};
       try {
