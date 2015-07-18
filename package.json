@@ -1,6 +1,6 @@
 {
   "name": "easy-locale",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A simple and easy to use lib for localizing your application.",
   "main": "src/easy-locale.npm.js",
   "directories": {

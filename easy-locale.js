@@ -43,7 +43,9 @@ var locale = (function () {
     var key, value;
     for (key in valuesObj) {
       value = valuesObj[key];
-      string = string.replace("%{" + key + "}", value);
+      var find = "%{" + key + "}";
+      var pattern = new RegExp(find, 'g');
+      string = string.replace(pattern, value);
     }
     return string;
   }
@@ -69,10 +71,10 @@ var locale = (function () {
   return {
     init: function (userLocale, data, options) {
       locale = userLocale;
-      translations = checkOptions(options).isSingleLocale() ? data :  data[locale];
+      translations = checkOptions(options).isSingleLocale() ? data : data[locale];
     },
 
-    getCurrent: function(){
+    getCurrent: function () {
       return translations;
     },
 

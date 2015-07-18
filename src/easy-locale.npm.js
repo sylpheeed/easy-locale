@@ -44,7 +44,9 @@ module.exports = (function () {
     var key, value;
     for (key in valuesObj) {
       value = valuesObj[key];
-      string = string.replace("%{" + key + "}", value);
+      var find = "%{" + key + "}";
+      var pattern = new RegExp(find, 'g');
+      string = string.replace(pattern, value);
     }
     return string;
   }
